@@ -40,7 +40,7 @@ namespace ContosoUniversity.Controllers
             {
                 students = students.Where(s => s.LastName.Contains(searchString) || s.FirstName.Contains(searchString));
             }
-
+            //switch
             switch (sortOrder)
             {
                 case "name_desc":
