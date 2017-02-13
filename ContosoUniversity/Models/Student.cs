@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,12 +10,17 @@ namespace ContosoUniversity.Models
     {
         public int ID { get; set; }
 
+        [StringLength(50)]
         public string LastName { get; set; }
 
+        [StringLength(50,ErrorMessage ="First name cannot be more than 50 chars!")]
         public string FirstName { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode = true)]
         public DateTime EnrollmentDate { get; set; }
         
         public virtual ICollection<Enrollment> Enrollments { get; set; }
